@@ -15,22 +15,22 @@ class BinarySearch(list):
 
         while True:
             if value == self[first]:
-                return {'index': first, 'count': count}
+                return {'count': count, 'index': first}
             elif value == self[last]:
-                return {'index': last, 'count': count}
-            midpoint = (first + last) / 2
+                return {'count': count, 'index': last}
+
+            midpoint = (first + last) // 2
 
             if value == self[midpoint]:
-                return {'index': midpoint, 'count': count}
-
+                return {'count': count, 'index': midpoint}
             elif value > self[midpoint]:
                 first = midpoint + 1
-
-            elif value < self[midpoint]:
+            else:
                 last = midpoint - 1
 
             if first >= last:
                 break
+
             count += 1
         # Return this if no match was found
-        return {'index': -1, 'count': count}
+        return {'count': count, 'index': -1}
